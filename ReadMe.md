@@ -1,8 +1,10 @@
-# Swagger!
+# swagger-autogen! 이 브랜치에서는 ReadMe2.md를 참고해주세요!
 
 12월 6일
 
 - Schema 추가 설명 필요
+
+
 
 ## [참고 : 노드 스웨거](https://any-ting.tistory.com/105)
 
