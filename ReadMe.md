@@ -2,7 +2,12 @@
 
 12월 6일
 
-- Schema 추가 설명 필요
+- Schema 추가 설명 필요 ㅇ
+
+12월 9일
+
+- swagger-autogen: 라우터를 작성하면 스웨거에서 자동으로 문서화시켜줌
+  - main브랜치 말고 autogen을 적용한 버전을 swagger_ver2 브랜치에 추가했습니다.
 
 ## [출처 : 노드 스웨거](https://any-ting.tistory.com/105)
 
