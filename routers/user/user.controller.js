@@ -3,16 +3,19 @@ const users = [
   { id: 1, name: "유저1" },
   { id: 2, name: "유저2" },
   { id: 3, name: "유저3" },
-]
+];
 
 /**
  * @path {GET} http://localhost:3000/api/user/users
  * @description 요청 데이터 값이 없고 반환 값이 있는 GET Method
  */
 exports.getUsers = (req, res) => {
+  /**
+   * #swagger.tags = ['Users']
+   */
   //유저 정보 반환
-  res.json({ ok: true, users: users })
-}
+  res.json({ ok: true, users: users });
+};
 
 /**
  * @path {GET} http://localhost:3000/api/user/user?user_id=1
@@ -24,13 +27,13 @@ exports.getUsers = (req, res) => {
  *
  */
 exports.findOneUser1 = (req, res) => {
-  const user_id = req.query.user_id
+  const user_id = req.query.user_id;
 
   //filter라는 함수는 자바스크립트에서 배열 함수이다. 필터링을 할때 많이 사용된다 필터링한 데이터를 새로운 배열로 반환한다.
-  const user = users.filter((data) => data.id == user_id)
+  const user = users.filter((data) => data.id == user_id);
 
-  res.json({ ok: false, user: user })
-}
+  res.json({ ok: false, user: user });
+};
 
 /**
  * @path {GET} http://localhost:3000/api/user/:user_id
@@ -47,13 +50,13 @@ exports.findOneUser1 = (req, res) => {
  *  그렇기 때문에 다른 라우터 보다 아래 있어야 한다.
  */
 exports.findOneUser2 = (req, res) => {
-  const user_id = req.params.user_id
+  const user_id = req.params.user_id;
 
   //filter라는 함수는 자바스크립트에서 배열 함수이다. 필터링을 할때 많이 사용된다 필터링한 데이터를 새로운 배열로 반환한다.
-  const user = users.filter((data) => data.id == user_id)
+  const user = users.filter((data) => data.id == user_id);
 
-  res.json({ ok: true, user: user })
-}
+  res.json({ ok: true, user: user });
+};
 
 /**
  * @path {POST} http://localhost:3000/api/user/add
@@ -64,13 +67,13 @@ exports.findOneUser2 = (req, res) => {
  */
 exports.createUser = (req, res) => {
   // 구조분해를 통해 id 와 name을 추출
-  const { id, name } = req.body
+  const { id, name } = req.body;
 
   //concat 함수는 자바스크립트에서 배열 함수이다. 새로운 데이터를 추가하면 새로운 배열로 반환한다.
-  const user = users.concat({ id, name })
+  const user = users.concat({ id, name });
 
-  res.json({ ok: true, users: user })
-}
+  res.json({ ok: true, users: user });
+};
 
 /**
  * @path {PUT} http://localhost:3000/api/user/update
@@ -78,41 +81,41 @@ exports.createUser = (req, res) => {
  */
 exports.setUsers = (req, res) => {
   // 구조분해를 통해 id 와 name을 추출
-  const { id, name } = req.body
+  const { id, name } = req.body;
 
   //map 함수는 자바스크립트에서 배열 함수이다. 요소를 일괄적으로 변경할 때 사용됩니다.
   const user = users.map((data) => {
-    if (data.id == id) data.name = name
+    if (data.id == id) data.name = name;
 
     return {
       id: data.id,
       name: data.name,
-    }
-  })
+    };
+  });
 
-  res.json({ ok: true, users: user })
-}
+  res.json({ ok: true, users: user });
+};
 
 /**
  * @path {PATCH} http://localhost:3000/api/user/update/:user_id
  * @description 단일 데이터를 수정할 때 사용되는 Method
  */
 exports.setUser = (req, res) => {
-  const { user_id } = req.params
-  const { name } = req.body
+  const { user_id } = req.params;
+  const { name } = req.body;
 
   //map 함수는 자바스크립트에서 배열 함수이다. 요소를 일괄적으로 변경할 때 사용됩니다.
   const user = users.map((data) => {
-    if (data.id == user_id) data.name = name
+    if (data.id == user_id) data.name = name;
 
     return {
       id: data.id,
       name: data.name,
-    }
-  })
+    };
+  });
 
-  res.json({ ok: true, users: user })
-}
+  res.json({ ok: true, users: user });
+};
 
 /**
  * @path {DELETE} http://localhost:3000/api/user/delete
@@ -120,10 +123,10 @@ exports.setUser = (req, res) => {
  *
  */
 exports.delUser = (req, res) => {
-  const user_id = req.query.user_id
+  const user_id = req.query.user_id;
 
   //filter라는 함수는 자바스크립트에서 배열 함수이다. 필터링을 할때 많이 사용된다 필터링한 데이터를 새로운 배열로 반환한다.
-  const user = users.filter((data) => data.id != user_id)
+  const user = users.filter((data) => data.id != user_id);
 
-  res.json({ ok: true, users: user })
-}
+  res.json({ ok: true, users: user });
+};

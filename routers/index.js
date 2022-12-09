@@ -1,12 +1,24 @@
-const router = require("express").Router()
-const user = require("./user")
+const router = require("express").Router();
+const user = require("./user");
+const calc = require("./calc");
 
-/**
- * @swagger
- * tags:
- *   name: Users
- *   description: 유저 추가 수정 삭제 조회
- */
-router.use("/user", user)
+router.use(
+  "/user",
+  () => {
+    /**
+     * #swagger.tags = ['Users']
+     */
+  },
+  user
+);
 
-module.exports = router
+router.use(
+  "/calc",
+  () => {
+    /**
+     * #swagger.tags = ['Calc']
+     */
+  },
+  calc
+);
+module.exports = router;

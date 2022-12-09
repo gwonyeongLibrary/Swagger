@@ -1,34 +1,7 @@
-const userRouter = require("express").Router()
-const userController = require("./user.controller")
+const userRouter = require("express").Router();
+const userController = require("./user.controller");
 
-/**
- * @swagger
- * paths:
- *  /api/user/users:
- *    get:
- *      summary: "유저 데이터 전체조회"
- *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청"
- *      tags: [Users]
- *      responses:
- *        "200":
- *          description: 전체 유저 정보
- *          content:
- *            application/json:
- *              schema:
- *                type: object
- *                properties:
- *                    ok:
- *                      type: boolean
- *                    users:
- *                      type: object
- *                      example:
- *                          [
- *                            { "id": 1, "name": "유저1" },
- *                            { "id": 2, "name": "유저2" },
- *                            { "id": 3, "name": "유저3" },
- *                          ]
- */
-userRouter.get("/users", userController.getUsers)
+userRouter.get("/users", userController.getUsers);
 
 /**
  * @swagger
@@ -58,7 +31,7 @@ userRouter.get("/users", userController.getUsers)
  *                  type: object
  *                  example: [{ "id": 1, "name": "유저1" }]
  */
-userRouter.get("/user", userController.findOneUser1)
+userRouter.get("/user", userController.findOneUser1);
 
 /**
  * @swagger
@@ -88,7 +61,7 @@ userRouter.get("/user", userController.findOneUser1)
  *                  type: object
  *                  example: [{ "id": 1, "name": "유저1" }]
  */
-userRouter.get("/:user_id", userController.findOneUser2)
+userRouter.get("/:user_id", userController.findOneUser2);
 
 /**
  * @swagger
@@ -113,7 +86,7 @@ userRouter.get("/:user_id", userController.findOneUser2)
  *                type: string
  *                description: "유저 이름"
  */
-userRouter.post("/add", userController.createUser)
+userRouter.post("/add", userController.createUser);
 
 /**
  * @swagger
@@ -155,7 +128,7 @@ userRouter.post("/add", userController.createUser)
  *                      { "id": 3, "name": "유저3" },
  *                    ]
  */
-userRouter.put("/update", userController.setUsers)
+userRouter.put("/update", userController.setUsers);
 
 /**
  * @swagger
@@ -201,7 +174,7 @@ userRouter.put("/update", userController.setUsers)
  *                      { "id": 3, "name": "유저3" },
  *                    ]
  */
-userRouter.patch("/update/:user_id", userController.setUser)
+userRouter.patch("/update/:user_id", userController.setUser);
 
 /**
  * @swagger
@@ -236,6 +209,6 @@ userRouter.patch("/update/:user_id", userController.setUser)
  *                      { "id": 3, "name": "유저3" },
  *                    ]
  */
-userRouter.delete("/delete", userController.delUser)
+userRouter.delete("/delete", userController.delUser);
 
-module.exports = userRouter
+module.exports = userRouter;

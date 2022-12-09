@@ -1,6 +1,8 @@
 //express 모듈 불러오기
 const express = require("express");
 const api = require("./routers");
+const swagger_file = require("./swagger/swagger-output.json");
+const swaggerUi = require("swagger-ui-express");
 
 //express 사용
 const app = express();
@@ -11,9 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", api);
 
-const { swaggerUi, specs } = require("./swagger/swagger");
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swagger_file));
 
 /**
  * 파라미터 변수 뜻

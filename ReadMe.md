@@ -4,7 +4,7 @@
 
 - Schema 추가 설명 필요
 
-## [출처 : 노드 스웨거](https://any-ting.tistory.com/105)
+## [참고 : 노드 스웨거](https://any-ting.tistory.com/105)
 
 ## [참고 : 협업을 위한 스웨거](https://overcome-the-limits.tistory.com/101)
 
